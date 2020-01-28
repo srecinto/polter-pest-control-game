@@ -7,11 +7,11 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     preload () {
-        console.log('TitleScene.preload() init');
+        console.log('TitleScene.preload()');
 
     }
 
     create () {
-
+        console.log('TitleScene.create()');
     }
 };

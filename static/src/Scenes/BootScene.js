@@ -13,7 +13,7 @@ export default class BootScene extends Phaser.Scene {
     preload () {
         console.log('BootScene.preload()');
         // load images
-        this.load.image('logo', '/assets/logo.png');
+        this.load.image('logo', '/assets/logos/ir_logo_800_trans.png');
     }
 
     create () {

@@ -11,7 +11,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
     preload () {
         console.log('PreloaderScene.preload()');
-        //this.add.image(400, 200, 'logo');
+        this.add.image(400, 300, 'logo');
 
         // display progress bar
         var progressBar = this.add.graphics();
@@ -56,6 +56,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
         // update progress bar
         this.load.on('progress', function (value) {
+            console.log('PreloaderScene.progressBar.progress()');
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
             progressBar.fillStyle(0xffffff, 1);
@@ -64,11 +65,13 @@ export default class PreloaderScene extends Phaser.Scene {
 
         // update file progress text
         this.load.on('fileprogress', function (file) {
+            console.log('PreloaderScene.progressBar.fileprogress()');
             assetText.setText('Loading asset: ' + file.key);
         });
 
         // remove progress bar when complete
         this.load.on('complete', function () {
+            console.log('PreloaderScene.progressBar.complete()');
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
@@ -76,10 +79,20 @@ export default class PreloaderScene extends Phaser.Scene {
             assetText.destroy();
         });
 
+        this.loadStartingAssets();
+
     }
 
     create () {
         console.log('PreloaderScene.create()');
-        this.scene.start('Title');
+        this.scene.start('ActionSequenceTest');
+    }
+
+    loadStartingAssets() {
+        console.log('PreloaderScene.loadStartingAssets()');
+
+        this.load.image("test_room_1", "/assets/test_room_1.png");
+        this.load.image("player_m", "/assets/player_m.png");
+        this.load.image("player_f", "/assets/player_f.png");
     }
 };
