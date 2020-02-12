@@ -5,5 +5,11 @@ export default {
     parent: "gameCanvas",
     width: 800,
     height: 600,
-    physics: { default: 'matter' }
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: true
+        }
+    },
+    debug: true
 };

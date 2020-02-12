@@ -92,7 +92,8 @@ export default class PreloaderScene extends Phaser.Scene {
         console.log('PreloaderScene.loadStartingAssets()');
 
         this.load.image("test_room_1", "/assets/test_room_1.png");
-        this.load.image("player_m", "/assets/player_m.png");
-        this.load.image("player_f", "/assets/player_f.png");
+        this.load.spritesheet("player_m", "/assets/characters/player_m.png", { frameWidth: 48, frameHeight: 55 });
+        this.load.spritesheet("player_f", "/assets/characters/player_f.png", { frameWidth: 48, frameHeight: 55 });
+        this.load.image("ghost", "/assets/ghost.png");
     }
 };
