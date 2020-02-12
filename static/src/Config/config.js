@@ -10,6 +10,5 @@ export default {
         arcade: {
             debug: true
         }
-    },
-    debug: true
+    }
 };

@@ -1,4 +1,5 @@
 import '//cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.js';
+import makeCharacterAnimations from '/assets/animations/character.js';
 
 /**
  * In this scene, we are going to load the assets we will be using in our game.
@@ -86,6 +87,7 @@ export default class PreloaderScene extends Phaser.Scene {
     create () {
         console.log('PreloaderScene.create()');
         this.scene.start('ActionSequenceTest');
+        makeCharacterAnimations(this);
     }
 
     loadStartingAssets() {

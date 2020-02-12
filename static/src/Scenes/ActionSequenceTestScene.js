@@ -1,5 +1,4 @@
 import '//cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.js';
-import makeCharacterAnimations from '/assets/animations/character.js';
 
 /**
  * Two Rooms
@@ -39,13 +38,13 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
         this.player_f = this.physics.add.sprite(200, 400, "player_f");
         this.player_f.body.setAllowGravity(false);
         //this.player_f.setFrictionAir(0);
-        this.player_f.setDisplaySize(200, 200);
+        this.player_f.setDisplaySize(175, 200);
         this.player_f.anims.play("player_f_idle", true);
 
         this.player_m = this.physics.add.sprite(500, 350, "player_m");
         this.player_m.body.setAllowGravity(false);
         //this.player_m.setFrictionAir(0);
-        this.player_m.setDisplaySize(200, 200);
+        this.player_m.setDisplaySize(175, 200);
         this.player_m.anims.play("player_m_idle", true);
 
         this.characterPortrait = this.add.sprite(50, 50, "player_f");
