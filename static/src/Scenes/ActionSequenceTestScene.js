@@ -19,7 +19,8 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
 
         this.player_m = null;
         this.player_f = null;
-        this.room_1 = null;
+        this.room_1_bg = null;
+        this.room_1_fg = null;
         this.selectedCharacter = {};
         this.characterPortrait = null;
         this.debugText = null;
@@ -32,22 +33,66 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
         this.screenCenterX = this.sys.game.config.width / 2;
         this.screenCenterY = this.sys.game.config.height / 2;
 
-        this.room_1 = this.add.image(this.screenCenterX, this.screenCenterY, "test_room_1");
-        this.room_1.setDisplaySize(800, 500);
+        this.room_1_bg = this.add.image(this.screenCenterX, this.screenCenterY, "room_1x1_background");
+        this.room_1_bg.setDisplaySize(800, 600);
+        this.room_1_bg.setDepth(0);
+
+        this.room_1_fg = this.add.image(this.screenCenterX, this.screenCenterY, "room_1x1_foreground");
+        this.room_1_fg.setDisplaySize(800, 600);
+        this.room_1_fg.setDepth(50);
+
+        this.room_door_left = this.add.image(this.screenCenterX, this.screenCenterY, "room_door_left");
+        this.room_door_left.setDisplaySize(800, 600);
+        this.room_door_left.setDepth(50);
+
+        this.room_door_front = this.add.image(this.screenCenterX, this.screenCenterY, "room_door_front");
+        this.room_door_front.setDisplaySize(800, 600);
+        this.room_door_front.setDepth(50);
+
+        this.room_door_back = this.add.image(this.screenCenterX, this.screenCenterY, "room_door_back");
+        this.room_door_back.setDisplaySize(800, 600);
+        this.room_door_back.setDepth(0);
+
+        this.room_door_right = this.add.image(this.screenCenterX, this.screenCenterY, "room_door_right");
+        this.room_door_right.setDisplaySize(800, 600);
+        this.room_door_right.setDepth(0);
+
+        this.room_furnature_clock = this.add.image(600, 200, "furnature_back_clock");
+        this.room_furnature_clock.setDisplaySize(65, 65);
+        this.room_furnature_clock.setDepth(0);
+
+        this.room_furnature_bookshelf = this.add.image(500, 355, "furnature_back_bookshelf");
+        this.room_furnature_bookshelf.setDisplaySize(175, 150);
+        this.room_furnature_bookshelf.setDepth(5);
+
+        this.room_furnature_couch = this.add.image(129, 540, "furnature_left_couch");
+        this.room_furnature_couch.setDisplaySize(125, 150);
+        this.room_furnature_couch.setDepth(30);
+
+        this.room_furnature_coffeetable = this.add.image(300, 530, "furnature_middle_coffeetable");
+        this.room_furnature_coffeetable.setDisplaySize(150, 100);
+        this.room_furnature_coffeetable.setDepth(30);
+
+        this.room_furnature_planter = this.add.image(700, 550, "furnature_middle_planter");
+        this.room_furnature_planter.setDisplaySize(75, 75);
+        this.room_furnature_planter.setDepth(40);
 
         this.player_f = this.physics.add.sprite(200, 400, "player_f");
         this.player_f.body.setAllowGravity(false);
         //this.player_f.setFrictionAir(0);
         this.player_f.setDisplaySize(175, 200);
         this.player_f.anims.play("player_f_idle", true);
+        this.player_f.setDepth(30);
 
         this.player_m = this.physics.add.sprite(500, 350, "player_m");
         this.player_m.body.setAllowGravity(false);
         //this.player_m.setFrictionAir(0);
         this.player_m.setDisplaySize(175, 200);
         this.player_m.anims.play("player_m_idle", true);
+        this.player_m.setDepth(30);
 
         this.characterPortrait = this.add.sprite(50, 50, "player_f");
+        this.characterPortrait.setDepth(30);
 
     }
 
@@ -80,7 +125,7 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
                 y: pointer.y
             }
 
-            this.physics.moveToObject(this.selectedCharacter, pointer, 200);
+            //this.physics.moveToObject(this.selectedCharacter, pointer, 200);
 
         }, this);
 

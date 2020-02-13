@@ -93,9 +93,19 @@ export default class PreloaderScene extends Phaser.Scene {
     loadStartingAssets() {
         console.log('PreloaderScene.loadStartingAssets()');
 
-        this.load.image("test_room_1", "/assets/test_room_1.png");
+        this.load.image("room_1x1_background", "/assets/rooms/room_1x1_background.png");
+        this.load.image("room_1x1_foreground", "/assets/rooms/room_1x1_foreground.png");
+        this.load.image("room_door_back", "/assets/rooms/room_door_back.png");
+        this.load.image("room_door_front", "/assets/rooms/room_door_front.png");
+        this.load.image("room_door_left", "/assets/rooms/room_door_left.png");
+        this.load.image("room_door_right", "/assets/rooms/room_door_right.png");
+        this.load.image("furnature_back_bookshelf", "/assets/furnature/furnature_back_bookshelf.png");
+        this.load.image("furnature_back_clock", "/assets/furnature/furnature_back_clock.png");
+        this.load.image("furnature_left_couch", "/assets/furnature/furnature_left_couch.png");
+        this.load.image("furnature_middle_coffeetable", "/assets/furnature/furnature_middle_coffeetable.png");
+        this.load.image("furnature_middle_planter", "/assets/furnature/furnature_middle_planter.png");
         this.load.spritesheet("player_m", "/assets/characters/player_m.png", { frameWidth: 48, frameHeight: 55 });
         this.load.spritesheet("player_f", "/assets/characters/player_f.png", { frameWidth: 48, frameHeight: 55 });
-        this.load.image("ghost", "/assets/ghost.png");
+        this.load.image("ghost", "/assets/characters/ghost.png", { frameWidth: 32, frameHeight: 32 });
     }
 };
