@@ -79,15 +79,13 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
 
         this.player_f = this.physics.add.sprite(200, 400, "player_f");
         this.player_f.body.setAllowGravity(false);
-        //this.player_f.setFrictionAir(0);
-        this.player_f.setDisplaySize(175, 200);
+        this.player_f.setScale(3);
         this.player_f.anims.play("player_f_idle", true);
         this.player_f.setDepth(30);
 
         this.player_m = this.physics.add.sprite(500, 350, "player_m");
         this.player_m.body.setAllowGravity(false);
-        //this.player_m.setFrictionAir(0);
-        this.player_m.setDisplaySize(175, 200);
+        this.player_m.setScale(3);
         this.player_m.anims.play("player_m_idle", true);
         this.player_m.setDepth(30);
 
@@ -103,6 +101,9 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
         this.player_m.setInteractive();
         this.player_f.on('clicked', this.onCharacterSelect, this);
         this.player_m.on('clicked', this.onCharacterSelect, this);
+
+        this.player_f.input.hitArea.setTo(10, 10, 25, 40);
+        this.player_m.input.hitArea.setTo(10, 10, 25, 40);
 
         this.player_f.emit('clicked', this.player_f);
 
@@ -143,15 +144,12 @@ export default class ActionSequenceTestScene extends Phaser.Scene {
     }
 
     update(time, delta) {
-        // Handle character select
-        //if(this.cursor.up.isDown) {
 
-        //}
-
-        if(this.selectedCharacter.movement) {
+        if(this.selectedCharacter.moveToTarget) {
 
             var distance = Phaser.Math.Distance.Between(this.selectedCharacter.x, this.selectedCharacter.y, this.selectedCharacter.moveToTarget.x, this.selectedCharacter.moveToTarget.y);
             this.debugText.setText('Distance: ' + distance);
+            console.log('Distance: ' + distance);
             if (this.selectedCharacter.body.speed > 0)
             {
                 //  4 is our distance tolerance, i.e. how close the source can get to the target
